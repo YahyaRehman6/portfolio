@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS styles for the layout and animations */
+        body {
+            font-family: Cinzel;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+
+        .intro {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro h1 {
+            font-size: 4rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .intro p {
+            font-size: 1.5rem;
+            color: #777;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8); /* Add background color with transparency */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2rem; /* Initial font size */
+        }
+
+        .navbar a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ff6f00;
+        }
+
+        /* CSS styles for animations */
+        .animated-text {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Media queries for responsive design */
+        @media only screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .intro h1 {
+                font-size: 5rem;
+            }
+
+            .intro p {
+                font-size: 2rem;
+            }
+
+            .navbar {
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 1.875rem; /* Increase the font size for mobile screens */
+            }
+
+            .navbar a {
+                margin-left: 15px; /* Increase the margin for mobile screens */
+            }
+        }
+
+        /* Additional media query for small screens */
+        @media only screen and (max-width: 480px) {
+            .intro h1 {
+                font-size: 3.75rem; /* Increase the font size by 25% for small screens */
+            }
+
+            .intro p {
+                font-size: 1.5rem; /* Increase the font size by 25% for small screens */
+            }
+
+            .navbar {
+                font-size: 1.5rem; /* Increase the font size by 25% for small screens */
+            }
+        }
+
+        /* Custom media query for viewport less than 300px */
+        @media only screen and (max-width: 370px) {
+            .intro h1 {
+                font-size: 3rem; /* Reduce the font size for viewport less than 300px */
+            }
+
+            .intro p {
+                font-size: 1.2rem; /* Reduce the font size for viewport less than 300px */
+            }
+
+            .navbar {
+                font-size: 1.2rem; /* Reduce the font size for viewport less than 300px */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="intro animated-text">
+            <h1>Welcome to <br>My Portfolio Website</h1>
+            <p>Yahya Rehman - Backend Developer</p>
+        </div>
+        <div class="navbar">
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'projects' %}">Projects</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript animation for the intro text
+        const intro = document.querySelector('.intro');
+
+        window.addEventListener('load', () => {
+            intro.classList.add('animated-text');
+        });
+    </script>
+</body>
+</html>
